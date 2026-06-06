@@ -1,61 +1,7 @@
 {
-  "valid": false,
-  "errors": [
-    {
-      "message": "XML tag <doctype> outside code block",
-      "file": "/Users/preetam/frappe/frappe-agent-kit/skills/add-portal-page/SKILL.md",
-      "ruleId": "skill-xml-tags-anywhere",
-      "explanation": "Anthropic forbids XML tags in skill frontmatter because it appears in Claude's system prompt. This rule extends that protection to the SKILL.md body as a defense-in-depth measure, since body content is also loaded into Claude's context when the skill is invoked.",
-      "howToFix": "Remove non-standard XML tags from the SKILL.md body, or move them inside a fenced code block if they are example content. Use markdown formatting instead of custom XML tags for structuring instructions.",
-      "severity": "error"
-    },
-    {
-      "message": "XML tag <field> outside code block",
-      "file": "/Users/preetam/frappe/frappe-agent-kit/skills/add-custom-field/SKILL.md",
-      "ruleId": "skill-xml-tags-anywhere",
-      "explanation": "Anthropic forbids XML tags in skill frontmatter because it appears in Claude's system prompt. This rule extends that protection to the SKILL.md body as a defense-in-depth measure, since body content is also loaded into Claude's context when the skill is invoked.",
-      "howToFix": "Remove non-standard XML tags from the SKILL.md body, or move them inside a fenced code block if they are example content. Use markdown formatting instead of custom XML tags for structuring instructions.",
-      "severity": "error"
-    }
-  ],
-  "warnings": [
-    {
-      "message": "File reference `templates/includes/<app>/<doctype>_row.html` not linked",
-      "file": "/Users/preetam/frappe/frappe-agent-kit/skills/add-portal-page/SKILL.md",
-      "ruleId": "skill-reference-not-linked",
-      "explanation": "Unlinked file references cannot be navigated and may become stale without detection.",
-      "howToFix": "Convert backtick-enclosed file paths to markdown links. For example, change `references/guide.md` to `[references/guide.md](./references/guide.md)`. The auto-fixer will perform this conversion automatically.",
-      "autoFix": {
-        "ruleId": "skill-reference-not-linked",
-        "description": "Convert `templates/includes/<app>/<doctype>_row.html` to markdown link",
-        "filePath": "/Users/preetam/frappe/frappe-agent-kit/skills/add-portal-page/SKILL.md",
-        "range": [
-          2897,
-          2942
-        ],
-        "text": "[templates/includes/<app>/<doctype>_row.html](./templates/includes/<app>/<doctype>_row.html)"
-      },
-      "severity": "warning"
-    },
-    {
-      "message": "File reference `templates/pages/<route>-detail.py` not linked",
-      "file": "/Users/preetam/frappe/frappe-agent-kit/skills/add-portal-page/SKILL.md",
-      "ruleId": "skill-reference-not-linked",
-      "explanation": "Unlinked file references cannot be navigated and may become stale without detection.",
-      "howToFix": "Convert backtick-enclosed file paths to markdown links. For example, change `references/guide.md` to `[references/guide.md](./references/guide.md)`. The auto-fixer will perform this conversion automatically.",
-      "autoFix": {
-        "ruleId": "skill-reference-not-linked",
-        "description": "Convert `templates/pages/<route>-detail.py` to markdown link",
-        "filePath": "/Users/preetam/frappe/frappe-agent-kit/skills/add-portal-page/SKILL.md",
-        "range": [
-          3017,
-          3052
-        ],
-        "text": "[templates/pages/<route>-detail.py](./templates/pages/<route>-detail.py)"
-      },
-      "severity": "warning"
-    }
-  ],
+  "valid": true,
+  "errors": [],
+  "warnings": [],
   "scanMetadata": {
     "filesScanned": 9,
     "filesFound": [

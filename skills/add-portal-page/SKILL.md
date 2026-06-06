@@ -11,7 +11,7 @@ End-to-end workflow. Uses the portal-list pattern (right for transaction/user-ow
 
 Use this skill when:
 
-- "Customers should see their <DocType> on the portal"
+- "Customers should see their orders / invoices / certificates on the portal"
 - Adding a portal list + detail view with per-user access control
 - Wiring a new entry into the portal sidebar menu
 
@@ -73,8 +73,8 @@ Use an existing role (Customer, Supplier) — don't invent one unless genuinely 
 
 ### 4. Templates — row + detail
 
-- Row: `templates/includes/<app>/<doctype>_row.html` (name link + status pill — copy shape from frappe-portal skill)
-- Detail: `templates/pages/<route>-detail.py` + `.html`; the `.py` MUST call `frappe.has_website_permission(doc)` and throw `frappe.PermissionError` — the route rule alone protects nothing.
+- Row template: create a row HTML file named after the doctype inside the app's `templates/includes` folder (name link + status pill — copy the shape from the frappe-portal skill)
+- Detail page: create a page module + template named after the detail route inside `templates/pages`; the Python module MUST call `frappe.has_website_permission(doc)` and throw `frappe.PermissionError` — the route rule alone protects nothing.
 
 ### 5. Apply & verify
 

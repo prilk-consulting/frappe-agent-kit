@@ -11,7 +11,7 @@ For adding fields to a DocType **your own app owns**, just edit its JSON (see fr
 
 Use this skill when:
 
-- "Add a <field> to Customer / Sales Invoice / Item / …"
+- "Add a field to Customer / Sales Invoice / Item / …"
 - Your app needs to store its own data on a standard DocType
 - Reviewing whether a custom field was added the upgrade-safe way
 
