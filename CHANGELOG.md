@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0 — 2026-06-06
+
+- **Task skills (Expo pattern):** `add-portal-page` and `add-custom-field` — guided end-to-end workflows with built-in verification steps
+- **Generate→validate loop (Shopify pattern):** new `validate_doctype_json.py` bundled in frappe-dev; `/frappe-new-doctype` now refuses to migrate until the JSON passes (max 3 fix attempts)
+- CI smoke-tests the new validator
+
 ## 0.1.0 — 2026-06-06
 
 Initial release.

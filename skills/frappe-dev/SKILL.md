@@ -14,6 +14,7 @@ Use this skill when:
 - Permission enforcement, background jobs, caching, desk client scripts
 - Structuring a custom app that extends other apps' DocTypes
 - Debugging Jinja/print-format errors → see [references/jinja-and-print-formats.md](references/jinja-and-print-formats.md)
+- Validating a hand-written DocType JSON before migrate → run `scripts/validate_doctype_json.py <file>` (bundled in this skill; exit 4 = errors)
 
 ## Document Lifecycle Hooks
 

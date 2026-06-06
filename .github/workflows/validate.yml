@@ -27,6 +27,12 @@ jobs:
         run: |
           python3 -m py_compile skills/frappe-fixtures/scripts/sort_nested_fixtures.py
           python3 -m py_compile skills/frappe-audit/scripts/resolve_hooks.py
+          python3 -m py_compile skills/frappe-dev/scripts/validate_doctype_json.py
           # smoke test the fixture sorter
           printf '[{"name":"b","p":"a"},{"name":"a","p":null}]' > /tmp/f.json
           python3 skills/frappe-fixtures/scripts/sort_nested_fixtures.py /tmp/f.json p
+          # smoke test the doctype validator: valid JSON passes, broken JSON exits 4
+          printf '{"doctype":"DocType","name":"T","module":"M","engine":"InnoDB","sort_field":"creation","fields":[{"fieldname":"title","label":"Title","fieldtype":"Data"}],"permissions":[{"role":"System Manager","read":1}]}' > /tmp/d.json
+          python3 skills/frappe-dev/scripts/validate_doctype_json.py /tmp/d.json
+          printf '{"doctype":"DocType","name":"T","fields":[{"fieldname":"x","fieldtype":"Nope"}]}' > /tmp/bad.json
+          if python3 skills/frappe-dev/scripts/validate_doctype_json.py /tmp/bad.json; then echo "validator failed to fail" && exit 1; fi

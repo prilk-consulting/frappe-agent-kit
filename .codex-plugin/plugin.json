@@ -1,6 +1,6 @@
 {
 	"name": "frappe-kit",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "Production-grade Frappe Framework & ERPNext skills, agents, and scaffolding commands. DocType patterns, testing, portal development, fixtures, migrations, and modern frontends — including the gotchas that only show up in production.",
 	"author": {
 		"name": "Prilk Consulting",

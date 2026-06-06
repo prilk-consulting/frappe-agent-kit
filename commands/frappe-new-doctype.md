@@ -21,11 +21,19 @@ Scaffold a new DocType named from `$ARGUMENTS` in the specified app. If the app 
    - `<scrubbed_name>.json` — full DocType definition
    - `<scrubbed_name>.py` — controller extending `Document`, with typed docstring stub and only the lifecycle hooks that have actual logic (no empty boilerplate methods)
    - `<scrubbed_name>.js` — only if there's client behavior; otherwise skip
-   - `test_<scrubbed_name>.py` — `FrappeTestCase` subclass with at least one real assertion (validation rule or default), not an empty placeholder
+   - `test_<scrubbed_name>.py` — test class with at least one real assertion (validation rule or default), not an empty placeholder
 
-5. **Apply**: run `bench --site <site> migrate` (ask which site if several; check `sites/common_site_config.json` `default_site` first). Confirm the table exists: `bench --site <site> execute frappe.db.table_exists --args "['<DocType Name>']"`.
+5. **Validate BEFORE migrating** (do not skip): run the validator bundled with this plugin's frappe-dev skill:
 
-6. **Verify**: open `/app/<scrubbed-name-with-dashes>/new` mentally — walk the field layout once for section/column breaks so the form isn't one endless column. Add `Section Break`/`Column Break` fields where natural groups exist.
+   ```bash
+   python3 <plugin>/skills/frappe-dev/scripts/validate_doctype_json.py <path/to/doctype.json>
+   ```
+
+   Fix every ERROR and re-run until exit 0 (max 3 attempts; if still failing, show the user the remaining errors and stop). Treat WARNs as review prompts — fix or consciously dismiss each one. Never run `bench migrate` on a JSON the validator rejects.
+
+6. **Apply**: run `bench --site <site> migrate` (ask which site if several; check `sites/common_site_config.json` `default_site` first). Confirm the table exists: `bench --site <site> execute frappe.db.table_exists --args "['<DocType Name>']"`.
+
+7. **Verify**: open `/app/<scrubbed-name-with-dashes>/new` mentally — walk the field layout once for section/column breaks so the form isn't one endless column. Add `Section Break`/`Column Break` fields where natural groups exist.
 
 ## Rules
 

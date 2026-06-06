@@ -25,6 +25,13 @@ Built from years of shipping Frappe apps in production — including the gotchas
 | `frappe-frontend` | React (frappe-react-sdk) & Vue (frappe-ui) SPAs, the dev/prod boot dance, Vite base-path triad, socket port gotchas, bench build wiring |
 | `frappe-audit` | Orchestrates a full app audit by delegating to the specialist agents below |
 
+### Task skills (guided end-to-end workflows)
+
+| Skill | Does |
+|-------|------|
+| `add-portal-page` | Expose a DocType on the portal: access rule → list context → hooks → templates → negative-test verification |
+| `add-custom-field` | Add a field to another app's DocType the upgrade-safe way: collision check → install.py → apply → verify |
+
 ### Agents
 
 | Agent | Role |
@@ -51,6 +58,7 @@ Generic AI coding agents write Frappe code that *looks* right and fails in produ
 |--------|------|
 | `skills/frappe-fixtures/scripts/sort_nested_fixtures.py` | Topo-sorts tree-doctype fixture JSON after export — prevents the fresh-site `update_add_node` crash |
 | `skills/frappe-audit/scripts/resolve_hooks.py` | Resolves every handler path in an app's hooks.py against the bench env — catches silent typos before runtime |
+| `skills/frappe-dev/scripts/validate_doctype_json.py` | Validates DocType JSON (fieldnames, fieldtypes, options, flag conflicts, permissions) before `bench migrate` — `/frappe-new-doctype` refuses to migrate until it passes |
 
 ## Compatibility
 
