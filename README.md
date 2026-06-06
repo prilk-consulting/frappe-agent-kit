@@ -48,6 +48,10 @@ Built from years of shipping Frappe apps in production — including the gotchas
 | `/frappe-kit:frappe-new-app` | `bench new-app` + production extension skeleton (install.py, custom/, hooks wiring) |
 | `/frappe-kit:frappe-new-doctype` | Scaffold DocType JSON + controller + client script + real test, then migrate & verify |
 
+## See it work
+
+[**Sample `/frappe-audit` report**](docs/sample-audit-report.md) — real output from auditing a production app: three specialist agents in parallel, two headline security findings verified against source before reporting, severity-bucketed with `file:line` citations.
+
 ## Why this exists
 
 Generic AI coding agents write Frappe code that *looks* right and fails in production: `get_all` leaking rows across users in whitelisted methods, `after_install` routines that crash on the second run, fixtures that migrate fine on the dev site and explode on a fresh install, `frm.call` silently clobbering Password fields. This kit encodes the framework's actual contracts — and the failure modes — so agents get it right the first time.
