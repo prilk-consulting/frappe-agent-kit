@@ -1,0 +1,18 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [],
+  "scanMetadata": {
+    "filesScanned": 7,
+    "filesFound": [
+      "/Users/preetam/frappe/frappe-agent-kit/skills/frappe-upgrade/SKILL.md",
+      "/Users/preetam/frappe/frappe-agent-kit/skills/frappe-test/SKILL.md",
+      "/Users/preetam/frappe/frappe-agent-kit/skills/frappe-portal/SKILL.md",
+      "/Users/preetam/frappe/frappe-agent-kit/skills/frappe-frontend/SKILL.md",
+      "/Users/preetam/frappe/frappe-agent-kit/skills/frappe-fixtures/SKILL.md",
+      "/Users/preetam/frappe/frappe-agent-kit/skills/frappe-dev/SKILL.md",
+      "/Users/preetam/frappe/frappe-agent-kit/skills/frappe-audit/SKILL.md"
+    ],
+    "skipped": false
+  }
+}

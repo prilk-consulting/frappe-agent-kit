@@ -1,0 +1,12 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [],
+  "scanMetadata": {
+    "filesScanned": 1,
+    "filesFound": [
+      "/Users/preetam/frappe/frappe-agent-kit/.claude-plugin/plugin.json"
+    ],
+    "skipped": false
+  }
+}

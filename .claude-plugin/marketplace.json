@@ -1,0 +1,17 @@
+{
+	"name": "prilk",
+	"owner": {
+		"name": "Prilk Consulting",
+		"url": "https://prilk.com"
+	},
+	"metadata": {
+		"description": "Frappe Framework & ERPNext tooling for Claude Code by Prilk Consulting — skills, audit agents, and scaffolding commands."
+	},
+	"plugins": [
+		{
+			"name": "frappe-kit",
+			"source": "./",
+			"description": "Production-grade Frappe Framework & ERPNext skills, agents, and scaffolding commands for Claude Code."
+		}
+	]
+}

@@ -1,0 +1,15 @@
+{
+  "valid": true,
+  "errors": [],
+  "warnings": [],
+  "scanMetadata": {
+    "filesScanned": 4,
+    "filesFound": [
+      "/Users/preetam/frappe/frappe-agent-kit/agents/frappe-security.md",
+      "/Users/preetam/frappe/frappe-agent-kit/agents/frappe-schema.md",
+      "/Users/preetam/frappe/frappe-agent-kit/agents/frappe-quality.md",
+      "/Users/preetam/frappe/frappe-agent-kit/agents/frappe-dev.md"
+    ],
+    "skipped": false
+  }
+}

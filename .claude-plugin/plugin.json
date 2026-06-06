@@ -1,0 +1,21 @@
+{
+	"name": "frappe-kit",
+	"displayName": "Frappe Agent Kit",
+	"version": "0.1.0",
+	"description": "Production-grade Frappe Framework & ERPNext skills, agents, and scaffolding commands for Claude Code. DocType patterns, testing, portal development, fixtures, migrations, and modern frontends — including the gotchas that only show up in production.",
+	"author": {
+		"name": "Prilk Consulting",
+		"url": "https://prilk.com"
+	},
+	"homepage": "https://github.com/prilk-consulting/frappe-agent-kit",
+	"repository": "https://github.com/prilk-consulting/frappe-agent-kit",
+	"license": "MIT",
+	"keywords": [
+		"frappe",
+		"erpnext",
+		"bench",
+		"doctype",
+		"erp",
+		"python"
+	]
+}
