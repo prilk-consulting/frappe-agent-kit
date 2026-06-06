@@ -45,9 +45,18 @@ Built from years of shipping Frappe apps in production — including the gotchas
 
 Generic AI coding agents write Frappe code that *looks* right and fails in production: `get_all` leaking rows across users in whitelisted methods, `after_install` routines that crash on the second run, fixtures that migrate fine on the dev site and explode on a fresh install, `frm.call` silently clobbering Password fields. This kit encodes the framework's actual contracts — and the failure modes — so agents get it right the first time.
 
+### Bundled scripts (skills that verify, not just advise)
+
+| Script | Does |
+|--------|------|
+| `skills/frappe-fixtures/scripts/sort_nested_fixtures.py` | Topo-sorts tree-doctype fixture JSON after export — prevents the fresh-site `update_add_node` crash |
+| `skills/frappe-audit/scripts/resolve_hooks.py` | Resolves every handler path in an app's hooks.py against the bench env — catches silent typos before runtime |
+
 ## Compatibility
 
 Targets **Frappe v15+** / ERPNext v15+. Version-specific behavior is flagged inline (e.g. v14 `frm.set_value` promise behavior, v16 test-class renames).
+
+Works in **Claude Code** (plugin marketplace), and the skills load in **Cursor** and **Codex** via their plugin manifests (`.cursor-plugin/`, `.codex-plugin/`).
 
 ## Roadmap
 

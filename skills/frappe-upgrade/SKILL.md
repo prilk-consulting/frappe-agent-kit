@@ -1,6 +1,6 @@
 ---
 name: frappe-upgrade
-description: Frappe migrations, patches, and version upgrades. Use for writing patches.txt entries, schema/data migration patterns, reload_doc and rename_field, idempotent patch design, and the bench migrate/update lifecycle.
+description: Frappe migrations, patches, and version upgrades. Use for writing patches.txt entries, schema/data migration patterns, reload_doc and rename_field, idempotent patch design, and the bench migrate/update lifecycle. Not for fixture export/ordering problems — use frappe-fixtures.
 ---
 
 # Migrations, Patches & Upgrades

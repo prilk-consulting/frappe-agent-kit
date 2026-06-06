@@ -1,6 +1,6 @@
 ---
 name: frappe-portal
-description: Frappe/ERPNext portal and website development. Use for exposing DocTypes on the portal (WebsiteGenerator vs portal list patterns), website_route_rules, portal menu items, has_website_permission, detail page templates, and upgrade-safe extension of existing portal pages.
+description: Frappe/ERPNext portal and website development. Use for exposing DocTypes on the portal (WebsiteGenerator vs portal list patterns), website_route_rules, portal menu items, has_website_permission, detail page templates, and upgrade-safe extension of existing portal pages. Not for React/Vue SPAs mounted inside a Frappe app — use frappe-frontend.
 ---
 
 # Portal & Website Development

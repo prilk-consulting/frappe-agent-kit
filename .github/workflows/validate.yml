@@ -1,0 +1,32 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: claudelint (skills, agents, plugin manifest)
+        run: npx -y claude-code-lint check-all
+
+      - name: claude plugin validate --strict
+        run: |
+          npm install -g @anthropic-ai/claude-code
+          claude plugin validate . --strict
+
+      - name: scripts are runnable
+        run: |
+          python3 -m py_compile skills/frappe-fixtures/scripts/sort_nested_fixtures.py
+          python3 -m py_compile skills/frappe-audit/scripts/resolve_hooks.py
+          # smoke test the fixture sorter
+          printf '[{"name":"b","p":"a"},{"name":"a","p":null}]' > /tmp/f.json
+          python3 skills/frappe-fixtures/scripts/sort_nested_fixtures.py /tmp/f.json p

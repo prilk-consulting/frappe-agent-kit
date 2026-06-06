@@ -1,6 +1,6 @@
 ---
 name: frappe-fixtures
-description: Frappe fixtures, workspaces, and sidebar setup. Use for exporting/syncing fixtures, Workspace + Workspace Sidebar + Desktop Icon configuration, nested-set fixture ordering, and per-environment ID pitfalls that break fresh-site migrations.
+description: Frappe fixtures, workspaces, and sidebar setup. Use for exporting/syncing fixtures, Workspace + Workspace Sidebar + Desktop Icon configuration, nested-set fixture ordering, and per-environment ID pitfalls that break fresh-site migrations. Not for data-migration patches or patches.txt — use frappe-upgrade.
 ---
 
 # Fixtures, Workspaces & Sidebars
@@ -85,34 +85,14 @@ File ".../frappe/utils/nestedset.py", line 77, in update_add_node
 TypeError: cannot unpack non-iterable NoneType object
 ```
 
-**Fix**: topologically re-sort the JSON after every export so each record appears only after its parent.
+**Fix**: topologically re-sort the JSON after every export so each record appears only after its parent. Run the bundled script (in this skill's `scripts/` directory):
 
-```python
-import json
-from pathlib import Path
-
-path = Path("apps/<app>/<app>/fixtures/<doctype_singular>.json")
-PARENT_FIELD = "parent_<doctype_singular>"  # the link-to-parent field on your tree doctype
-
-docs = json.loads(path.read_text())
-by_name = {d["name"]: d for d in docs}
-depth_cache: dict[str, int] = {}
-
-def depth_of(name: str) -> int:
-    if name in depth_cache:
-        return depth_cache[name]
-    d = by_name.get(name)
-    parent = d.get(PARENT_FIELD) if d else None
-    depth_cache[name] = (depth_of(parent) + 1) if parent else 0
-    return depth_cache[name]
-
-for d in docs:
-    depth_of(d["name"])
-docs.sort(key=lambda d: depth_cache[d["name"]])
-path.write_text(json.dumps(docs, indent=1, ensure_ascii=False) + "\n")
+```bash
+python3 scripts/sort_nested_fixtures.py apps/<app>/<app>/fixtures/<doctype>.json <parent_fieldname>
+# e.g. python3 scripts/sort_nested_fixtures.py apps/myapp/myapp/fixtures/item_group.json parent_item_group
 ```
 
-Run this as a post-export step (or wrap `bench export-fixtures` in a script that does both). Fixture order is **per-file**; fixture files import alphabetically by filename, so make sure parent-doctype fixtures sort before child-doctype fixtures if they're linked.
+It re-sorts by tree depth in place (idempotent; exit 2 on parent cycles). Run it as a post-export step after **every** `bench export-fixtures` of a tree doctype. Fixture order is **per-file**; fixture files import alphabetically by filename, so make sure parent-doctype fixtures sort before child-doctype fixtures if they're linked.
 
 This gotcha never shows on the dev site where the records already exist — only on fresh installs / first `bench migrate` of a downstream bench. Test fixtures on a throwaway site before shipping.
 

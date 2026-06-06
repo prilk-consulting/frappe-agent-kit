@@ -1,6 +1,6 @@
 ---
 name: frappe-frontend
-description: Modern SPA frontends for Frappe apps. Use for React with frappe-react-sdk, Vue 3 with frappe-ui, frappe-js-sdk, Vite build configuration, the dev/prod boot dance, Socket.io realtime, and asset-path pitfalls that 404 in production.
+description: Modern SPA frontends for Frappe apps. Use for React with frappe-react-sdk, Vue 3 with frappe-ui, frappe-js-sdk, Vite build configuration, the dev/prod boot dance, Socket.io realtime, and asset-path pitfalls that 404 in production. Not for desk form scripts (use frappe-dev) or server-rendered portal pages (use frappe-portal).
 ---
 
 # Modern Frontend Development for Frappe

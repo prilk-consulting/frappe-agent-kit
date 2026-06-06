@@ -20,7 +20,7 @@ Use this skill when:
 
 1. **Locate the app**: resolve `[app name]` to `apps/<app>/` in the current bench. If no argument, list apps in `apps/` (minus frappe/erpnext core unless explicitly requested) and ask which to audit.
 2. **Inventory** (inline, fast):
-   - `hooks.py` — every registered hook path; verify each dotted path resolves to a real function
+   - `hooks.py` — verify every registered handler path resolves by running the bundled script from the bench root: `./env/bin/python <this skill's dir>/scripts/resolve_hooks.py <app>` (exit 3 = broken hooks; each is automatically a High finding)
    - `modules.txt`, `patches.txt` — modules and patch history
    - `**/doctype/*/` — DocType JSON + controllers
    - `public/js/`, `www/`, `templates/` — client and web surface

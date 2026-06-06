@@ -1,6 +1,6 @@
 ---
 name: frappe-dev
-description: Frappe Framework core development reference. Use proactively for DocType controllers, server scripts, whitelisted APIs, database operations, hooks.py, permissions, background jobs, caching, client scripts, Jinja/print formats, and custom app structure on Frappe v15+ and ERPNext.
+description: Frappe Framework core development reference. Use proactively for DocType controllers, server scripts, whitelisted APIs, database operations, hooks.py, permissions, background jobs, caching, desk client scripts, Jinja/print formats, and custom app structure on Frappe v15+ and ERPNext. Not for React/Vue SPA frontends (use frappe-frontend), portal/website pages (use frappe-portal), or writing tests (use frappe-test).
 ---
 
 # Frappe Framework Core Reference
